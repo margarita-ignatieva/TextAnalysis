@@ -20,9 +20,14 @@ public class FileOperation {
     }
 
     public static void writeToFile(Map<String, Long> inputMap, String path){
-        List<String> lines = inputMap.entrySet().stream()
-                .map(entry -> new StringBuilder().append(entry.getKey())
-                        .append(" : ").append(entry.getValue()).toString())
+        List<String> lines = inputMap
+                .entrySet()
+                .stream()
+                .map(entry -> new StringBuilder()
+                        .append(entry.getKey())
+                        .append(" : ")
+                        .append(entry.getValue())
+                        .toString())
                 .collect(Collectors.toList());
         try {
             Files.write(Paths.get(path), lines, UTF_8);

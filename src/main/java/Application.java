@@ -1,6 +1,6 @@
-import by.intexsoft.text.ListToMap;
+import by.intexsoft.text.CountWords;
 import by.intexsoft.text.FileOperation;
-import by.intexsoft.text.ParseText;
+import by.intexsoft.text.SplitToWords;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -15,12 +15,12 @@ public class Application {
         list.add("bor");
         list.add("bor");
         list.add("bor");
-        System.out.println(ListToMap.convertToMap(list));
+        System.out.println(CountWords.convertToMap(list));
         final String path = "D:\\by_intexSoft\\TextAnalysis\\src\\main\\resources\\testText";
         final String outputPath = "D:\\by_intexSoft\\TextAnalysis\\src\\main\\resources\\outputFile";
         String rawText = FileOperation.readFile(path);
-        List<String> formatedText = ParseText.formatWordsFromText(rawText);
-        Map<String, Long> formatedTextMap = ListToMap.convertToMap(formatedText);
+        List<String> formatedText = SplitToWords.formatWordsFromText(rawText);
+        Map<String, Long> formatedTextMap = CountWords.convertToMap(formatedText);
         FileOperation.writeToFile(formatedTextMap, outputPath);
     }
 }
